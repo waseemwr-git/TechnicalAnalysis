@@ -1,0 +1,38 @@
+AI Assistance Declaration: I used ChatGPT (GPT-5.6 Sol) on October 3, 2026 for ideation, R function drafting, prompt refinement, documentation wording, and debugging suggestions. Prompts used: “Write an R function that removes outliers from a numeric vector using the IQR method”; “Revise the function to include comments, argument validation, and return a clean result”; “Explain what each line of the R code does and how you might test if it works correctly”; “Update the function to handle NA values”; “Optimize the function for efficiency and readability”; “How could you test this function with edge cases?”; “Summarize how this R function changed across revisions”; and “Highlight what improvements were human-driven vs. AI-generated.” I verified outputs using test cases, a manual IQR check, an independent comparison with boxplot.stats(), and a self spot-check. All final calculations are done by myself. I am responsible for the accuracy and originality of this work.
+
+BDA400 Assignment 3 - Test Output Log
+Student: Waseem Rahmathulla Malayilthodi
+
+1. First-version test with NA value:
+[1] "ERROR: missing values and NaN's not allowed if 'na.rm' is FALSE"
+
+2. Main synthetic sample:
+[1]  10  15 999  20  25  NA
+Final cleaned result:
+[1] 10 15 20 25
+Matches manually expected result: TRUE
+
+3. Independent comparison with boxplot.stats():
+Outlier(s) reported by boxplot.stats():
+[1] 999
+Clean vector based on boxplot.stats():
+[1] 10 15 20 25
+Final function matches boxplot.stats() result: TRUE
+
+4. Edge case - no outliers:
+[1] 5 6 7 8 9
+
+5. Edge case - identical values:
+[1] 4 4 4 4 4
+
+6. Edge case - NA values and one outlier:
+[1] 1 2 3
+
+7. Edge case - non-numeric input:
+[1] "ERROR: x must be a numeric vector."
+
+8. Edge case - infinite value:
+[1] "ERROR: x must not contain Inf or -Inf."
+
+9. Edge case - negative multiplier:
+[1] "ERROR: multiplier must be one finite, non-negative numeric value."
