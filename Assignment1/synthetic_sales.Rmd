@@ -1,0 +1,93 @@
+---
+title: "Synthetic Sales Script Documentation"
+author: "Waseem"
+output: html_document
+---
+
+AI Assistance Declaration: I used ChatGPT (GPT-5.6 Sol) for Markdown structure, writing assistance, layout suggestions, and revision support on October 2, 2026. Prompts used are documented in Appendix.md. I manually reviewed the generated Markdown structure and content for clarity, consistency, and syntax. No external or personal dataset was provided to the AI. I am responsible for the accuracy and originality of this work.
+
+# Purpose
+
+This R Markdown document explains a small R example that creates and displays a **synthetic monthly sales dataset**. The data are fictional and are used only to demonstrate clear R project documentation.
+
+The example has three tasks:
+
+1. create the synthetic dataset;
+2. display and summarize the data; and
+3. create a simple visualization.
+
+## Inputs
+
+There are no external files or real datasets.
+
+The only input is a manually defined synthetic data frame containing:
+
+- `Month` - six fictional monthly labels;
+- `Sales` - six fictional sales values.
+
+## Create the Synthetic Data
+
+The following R code creates the dataset.
+
+```{r create-data}
+sales_data <- data.frame(
+  Month = c("January", "February", "March", "April", "May", "June"),
+  Sales = c(120, 145, 138, 160, 172, 185)
+)
+
+sales_data
+```
+
+## Inspect the Data
+
+The structure of the data can be checked with `str()`.
+
+```{r inspect-data}
+str(sales_data)
+```
+
+A basic summary of the synthetic sales values can be produced with `summary()`.
+
+```{r summarize-data}
+summary(sales_data$Sales)
+```
+
+## Visualization
+
+The following code creates a bar chart using base R.
+
+```{r plot-data}
+barplot(
+  sales_data$Sales,
+  names.arg = sales_data$Month,
+  main = "Synthetic Monthly Sales",
+  xlab = "Month",
+  ylab = "Sales"
+)
+```
+
+## Outputs
+
+When the document is run or knitted, the expected outputs are:
+
+- a table containing six rows of synthetic data;
+- the R structure of the data frame;
+- a summary of the synthetic `Sales` values; and
+- a bar chart of sales by month.
+
+## Validation
+
+I reviewed the document to make sure:
+
+- Markdown headings are organized consistently;
+- R code uses fenced R Markdown chunks;
+- each code chunk has a descriptive label;
+- the purpose, inputs, and outputs are clearly separated;
+- no personal or real-world dataset is used; and
+- the document can be previewed or knitted in RStudio.
+
+Before final submission, I will knit or preview this `.Rmd` file in RStudio and confirm that all sections and code chunks render correctly.
+
+## AI Assistance Disclosure
+
+I used ChatGPT (GPT-5.6 Sol) on October 2, 2026 for suggestions on document organization, Markdown formatting, code-block presentation, and wording. The prompts and key responses are documented in `Appendix.md`. I reviewed the final structure and syntax and remain responsible for the submitted work.
