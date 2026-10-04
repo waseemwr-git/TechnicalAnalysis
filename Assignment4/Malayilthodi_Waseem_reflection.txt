@@ -1,0 +1,19 @@
+AI Assistance Declaration: I used ChatGPT (GPT-5.6 Sol) for brainstorming reflection topics only. I did not use AI to write the reflection paragraph. Prompts used: see Malayilthodi_Waseem_AI_Appendix.txt. I verified the technical work by running the R script in RStudio and checking the before/after output. All final calculations are done by myself. I am responsible for the accuracy and originality of this work.
+
+BDA400 Assignment 4 - Reflection
+Student: Waseem Malayilthodi
+
+IMPORTANT: The assignment explicitly says, "Use your own words. Do not use AI to write this reflection." Write 100-150 words yourself below after you run and verify the R script.
+
+Use these points only as a checklist for what your own paragraph must address:
+- Which AI suggestions were helpful?
+- Was any suggestion too generic or not appropriate for the actual dataset?
+- What did you learn from checking the code line by line in RStudio?
+- What specific verification checks did you use?
+- Why did you keep or change the proposed outlier rule?
+- How would you make your next prompt more specific?
+- What is one limitation of relying on AI for data cleaning?
+
+YOUR 100-150 WORD REFLECTION:
+
+[Write your reflection here in your own words before submission.]

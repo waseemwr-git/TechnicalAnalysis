@@ -1,0 +1,48 @@
+AI Assistance Declaration: I used ChatGPT (GPT-5.6 Sol) for ideation, draft data-cleaning steps, R code structure, comments, and writing assistance. Prompts used are listed below. I verified outputs using RStudio console checks with summary(), dplyr::glimpse(), table(), nrow(), colSums(is.na()), duplicated(), and spot-checking records. All final calculations are done by myself. I am responsible for the accuracy and originality of this work.
+
+BDA400 Assignment 4 - AI Prompts and Key Responses
+Tool: ChatGPT
+Model/version: GPT-5.6 Sol
+Date: October 3, 2026
+
+PROMPT 1 - Initial cleaning guidance
+"I have a sales dataset in R with missing Product and Quantity values, duplicate rows or repeated OrderID values, and unreasonable Quantity values. What common data-cleaning steps should I perform using dplyr?"
+
+Key response summary:
+The suggested workflow was to inspect missing values and categories, remove exact duplicates, decide how to handle incomplete rows, standardize text fields, define a transparent rule for unreasonable numeric values, and verify the cleaned data with row counts, missing-value counts, duplicate checks, summaries, and category tables.
+
+PROMPT 2 - Dataset-specific R code
+"Here is a sample of my sales data with the columns OrderID, Product, Quantity, Price, and Customer. Suggest readable R code using dplyr to clean missing Product or Quantity values, remove duplicate records, standardize text, and handle invalid Quantity values. Do not invent fields that are not in the data."
+
+Key response summary:
+The draft used distinct(), filter(), mutate(), and arrange(). It kept the cleaning logic tied to the actual CSV fields instead of using the generic CustomerID and Region fields mentioned in the assignment example.
+
+PROMPT 3 - Explanation and verification
+"Explain what each line of the suggested dplyr cleaning pipeline does and how I can confirm it worked correctly using summary(), glimpse(), table(), nrow(), missing-value checks, and duplicate checks."
+
+Key response summary:
+The response explained the purpose of each cleaning stage and recommended comparing the original and cleaned datasets with nrow(), colSums(is.na()), duplicated(), summary(), and table(), followed by sanity checks for the chosen quantity limits.
+
+PROMPT 4 - Outlier refinement
+"The Quantity column contains negative values, zero, 100, and 1000. I do not want to automatically remove 100-unit bulk orders just because an IQR rule may flag them. Revise the cleaning logic so the business rule is explicit and readable."
+
+Key response summary:
+The cleaning rule was revised to require Quantity > 0 and Quantity <= 100. This treats negative values, zero, and 1000 as invalid or unreasonable while retaining 100-unit orders as potentially valid bulk purchases. boxplot.stats() is still used as an independent statistical check rather than as the only decision rule.
+
+PROMPT 5 - Readability and tidyverse review
+"Simplify the dplyr cleaning pipeline for readability and check whether it follows tidyverse best practices. Suggest improvements without changing the intended cleaning rules."
+
+Key response summary:
+The pipeline was kept as a short sequence of distinct(), filter(), mutate(), filter(), and arrange() steps with comments. Verification checks were kept separate from transformation code so the cleaning logic is easy to read and audit.
+
+PROMPT 6 - Validation
+"How can I test this cleaned dataset for edge cases and confirm that no missing Product or Quantity values remain, exact duplicates are gone, OrderID is unique, and all retained Quantity values follow my stated rule?"
+
+Key response summary:
+The recommended checks included colSums(is.na()), duplicated(), range(), and stopifnot() assertions so the script stops if any required cleaning condition fails.
+
+Human review and changes
+- I matched the code to the actual dataset columns rather than the generic example fields in the assignment sheet.
+- I kept 100-unit orders because they can represent plausible bulk purchases and removed quantities outside the stated 1-100 business range.
+- I used explicit verification checks after cleaning instead of assuming the pipeline worked.
+- I reviewed the code comments and file names against the assignment submission instructions.
